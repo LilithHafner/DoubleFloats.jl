@@ -1,5 +1,13 @@
 # more comprehensive tests of corner and extremal cases
 
+@test iszero( (2.0 * Double64(pi)) - (Double64(pi) * 2.0) )
+@test iszero( (0.5 * Double64(pi)) - (Double64(pi) * 0.5) )
+
+@test iszero( (Double64(2.0) * Double64(pi)) - 
+              (Double64(pi) * Double64(2.0)) )
+@test iszero( (Double64(0.5) * Double64(pi)) - 
+              (Double64(pi) * Double64(0.5)) )
+
 FT = Float64; DT = Double{FT}
 
 dnan, fnan = DT(NaN), FT(NaN)
