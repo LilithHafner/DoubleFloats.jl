@@ -9,7 +9,7 @@
               (Double64(pi) * Double64(0.5)) )
 
 FT = Float64
-DT = Double64{FT}
+DT = DoubleFloat{FT}
 
 dnan, fnan = DT(NaN), FT(NaN)
 dinf, finf = DT(Inf), FT(Inf)
