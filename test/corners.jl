@@ -92,10 +92,10 @@ end
 
     @test !isnan(x + y)
     @test !isnan(y + x)
-e   @test !isnan(x - y)
+    @test !isnan(x - y)
     @test !isnan(y - x)
-e   @test !isnan(x * y)
+    @test !isnan(x * y)
     @test !isnan(y * x)
-e   @test !isnan(x / y)
+    @test !isnan(x / y)
     @test !isnan(y / x)
- nd
+ end
