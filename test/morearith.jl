@@ -19,22 +19,22 @@ d1, f1 = one(DT), one(FT)
 
 dmin, fmin = floatmin(DT), HI(floatmin(DT))
 dmax, fmax = floatmax(DT), HI(floatmax(DT))
-dmin₊, fmin₊ = dmin * (1025/1024), fmin * (1025/1024)
-dmax₋, fmax₋ = dmax * (1023/1024), fmax * (1023/1024)
+dmin₊, fmin₊ = dmin * (1025/1024), HI(dmin * (1025/1024))
+dmax₋, fmax₋ = dmax * (1023/1024), HI(dmax * (1023/1024))
 
-sqrt_dmin, sqrt_fmin = sqrt(dmin), sqrt(fmin)
-sqrt_dmax, sqrt_fmax = sqrt(dmax), sqrt(fmax)
-cbrt_dmin, cbrt_fmin = cbrt(dmin), cbrt(fmin)
-cbrt_dmax, cbrt_fmax = cbrt(dmax), cbrt(fmax)
-cbrt2_dmin, cbrt2_fmin = cbrt_dmin^2, cbrt_fmin^2
-cbrt2_dmax, cbrt2_fmax = cbrt_dmax^2, cbrt_fmax^2
+sqrt_dmin, sqrt_fmin = sqrt(dmin), HI(sqrt(dmin))
+sqrt_dmax, sqrt_fmax = sqrt(dmax), HI(sqrt(dmax))
+cbrt_dmin, cbrt_fmin = cbrt(dmin), HI(cbrt(dmin))
+cbrt_dmax, cbrt_fmax = cbrt(dmax), HI(cbrt(dmax))
+cbrt2_dmin, cbrt2_fmin = cbrt_dmin^2, HI(cbrt_dmin^2)
+cbrt2_dmax, cbrt2_fmax = cbrt_dmax^2, HI(cbrt_dmax^2)
 
-sqrt_dmin₊, sqrt_fmin₊ = sqrt(dmin₊), sqrt(fmin₊)
-sqrt_dmax₋, sqrt_fmax₋ = sqrt(dmax₋), sqrt(fmax₋)
-cbrt_dmin₊, cbrt_fmin₊ = cbrt(dmin₊), cbrt(fmin₊)
-cbrt_dmax₋, cbrt_fmax₋ = sqrt(dmax₋), sqrt(fmax₋)
-cbrt2_dmin₊, cbrt2_fmin₊ = cbrt_dmin₊^2, cbrt_fmin₊^2 
-cbrt2_dmax₋, cbrt2_fmax₋ = cbrt_dmax₋^2, cbrt_fmax₋^2
+sqrt_dmin₊, sqrt_fmin₊ = sqrt(dmin₊), HI(sqrt(dmin₊))
+sqrt_dmax₋, sqrt_fmax₋ = sqrt(dmax₋), HI(sqrt(dmax₋))
+cbrt_dmin₊, cbrt_fmin₊ = cbrt(dmin₊), HI(cbrt(dmin₊))
+cbrt_dmax₋, cbrt_fmax₋ = sqrt(dmax₋), HI(sqrt(dmax₋))
+cbrt2_dmin₊, cbrt2_fmin₊ = cbrt_dmin₊^2, HI(cbrt_dmin₊^2) 
+cbrt2_dmax₋, cbrt2_fmax₋ = cbrt_dmax₋^2, HI(cbrt_dmax₋^2)
 
 dvals = (d1, 
         dmin, dmax, dmin₊, dmax₋, 
