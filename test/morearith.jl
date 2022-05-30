@@ -48,8 +48,8 @@ fvals = (f1,
         cbrt_fmin, cbrt_fmax, cbrt_fmin₊, cbrt_fmax₋,
         cbrt2_fmin, cbrt2_fmax, cbrt2_fmin₊, cbrt2_fmax₋,)
 
-dcomb = combinations(dvals, 2)
-fcomb = combinations(fvals, 2)
+dcomb = combination(dvals, 2)
+fcomb = combination(fvals, 2)
 
 dfvals = zip(dcomb, fcomb)
 
