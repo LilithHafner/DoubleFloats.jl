@@ -8,7 +8,8 @@
 @test iszero( (Double64(0.5) * Double64(pi)) - 
               (Double64(pi) * Double64(0.5)) )
 
-FT = Float64; DT = Double{FT}
+FT = Float64
+DT = Double64{FT}
 
 dnan, fnan = DT(NaN), FT(NaN)
 dinf, finf = DT(Inf), FT(Inf)
