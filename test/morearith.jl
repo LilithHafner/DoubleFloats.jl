@@ -61,11 +61,6 @@ end
 
 @testset "more subtraction" begin
   for (d,f) in dfvals
-      if !isapprox(-(d...), -(f...))
-        println(">>>>>>>>>>")
-        println((d, f))
-        println("<<<<<<<<<<")
-      end  
       @test isapprox(-(d...), -(f...))
   end
 end
@@ -78,6 +73,11 @@ end
 
 @testset "more division" begin
   for (d,f) in dfvals
+      if !isapprox(/(d...), /(f...))
+         println("<<<<<<<<<<<<<<<")
+         println((d, f))
+         println(">>>>>>>>>>>>>>>")
+      end
       @test isapprox(/(d...), /(f...))
   end
 end
