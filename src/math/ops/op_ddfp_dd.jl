@@ -38,14 +38,14 @@ end
     t = xlo * y
     t = t + hilo
     hi, lo = two_hilo_sum(hihi, t)
-    isinf(hihi) ? (hihi, NaN) : (hi, lo)
+    isinf(hi) ? (hi, NaN) : isinf(hihi) ? (hihi, NaN) : (hi, lo)
 end
 
 @inline function dvi_ddfp_dd(x::Tuple{T,T}, y::T) where {T<:IEEEFloat}
     xhi, xlo = x    
-    hi = xhi / y
-    uh, ul = two_prod(hi, y)
+    hixy = xhi / y
+    uh, ul = two_prod(hixy, y)
     lo = ((((xhi - uh) - ul) + xlo))/y
-    hi,lo = two_hilo_sum(hi, lo)
-    isinf(hi) ? (hi, NaN) : (hi, lo)
+    hi,lo = two_hilo_sum(hixy, lo)
+    isinf(hi) ? (hi, NaN) : isinf(hixy) ? (hixy, NaN) : (hi, lo)
 end
