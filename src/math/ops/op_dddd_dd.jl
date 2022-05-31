@@ -36,7 +36,7 @@ function mul_dddd_dd(x::Tuple{T,T}, y::Tuple{T,T}) where T<:IEEEFloat
     t = fma(xlo, yhi, t)
     t = hilo + t
     hi, lo = two_hilo_sum(hihi, t)
-    isinf(hi) ? (hi, NaN) : (hi,lo)
+    isinf(hi) ? (hi, NaN) : isinf(hihi) ? (hihi, NaN) : (hi,lo)
 end
 
 #=
@@ -52,11 +52,11 @@ end
 @inline function dvi_dddd_dd(x::Tuple{T,T}, y::Tuple{T,T}) where {T<:IEEEFloat}
     xhi, xlo = x
     yhi, ylo = y
-    hi = xhi / yhi
-    uh, ul = two_prod(hi, yhi)
+    hixy = xhi / yhi
+    uh, ul = two_prod(hixy, yhi)
     lo = ((((xhi - uh) - ul) + xlo) - hi*ylo)/yhi
-    hi,lo = two_hilo_sum(hi, lo)
-    isinf(hi) ? (hi, NaN) : (hi,lo)
+    hi,lo = two_hilo_sum(hixy, lo)
+    isinf(hi) ? (hi, NaN) : isinf(hixy) ? (hixy, NaN) : (hi,lo)
 end
 
 # reltime 40
