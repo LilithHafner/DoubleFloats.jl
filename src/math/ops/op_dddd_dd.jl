@@ -56,7 +56,7 @@ end
     uh, ul = two_prod(hi, yhi)
     lo = ((((xhi - uh) - ul) + xlo) - hi*ylo)/yhi
     hi,lo = two_hilo_sum(hi, lo)
-    return hi, lo
+    isinf(hi) ? (hi, NaN) : (hi,lo)
 end
 
 # reltime 40
@@ -68,7 +68,7 @@ end
     uh, ul = two_prod(hi, yhi)
     lo = ((((xhi - uh) - ul) + xlo) - hi*ylo)/yhi
     hi,lo = two_hilo_sum(hi, lo)
-    return hi, lo
+    isinf(hi) ? (hi, NaN) : (hi,lo)
 end
 
 @inline ldexp_dd(x::Tuple{T,T}, n::Integer) where {T<:IEEEFloat} =
