@@ -3,6 +3,7 @@ using GenericLinearAlgebra, GenericSchur
 @testset "linear algebra" begin
     @test issquare(reshape(rand(Double32,3*3), 3, 3))
 
+#=
     # issue #77
     if VERSION < v"1.1"
       M = Double64.([1 0; 1 1])
@@ -15,6 +16,7 @@ using GenericLinearAlgebra, GenericSchur
       M = Complex{Double64}.([1 0; 1 1])
       @test_throws ErrorException exp(M)
     end        
+ =#
         
     t=[Complex{Double64}(1.0,0.0) Complex{Double64}(0.0,1.0);
        Complex{Double64}(0.0,-1.0) Complex{Double64}(1.0,0.0)]
