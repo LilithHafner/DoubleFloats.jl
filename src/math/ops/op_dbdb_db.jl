@@ -22,13 +22,13 @@ end
 end
 
 @inline function mul_dbdb_db(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat}
-    isfinite(HI(x) * HI(y)) && return DoubleFloat{T}(mul_dddd_dd(HILO(x), HILO(y)))
+    isfinite(HI(x) * HI(y)) && return DoubleFloat{T}(mul_dddd_dd(HILO(x), HILO(y))...)
     mul_dbdb_db_nonfinite(x, y)
 end
 
 @inline function dvi_dbdb_db(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat}
     (isinf(y) && !isinf(x)) && return (signbit(x) !== signbit(y) ? -zero(DoubleFloat{T}) : zero(DoubleFloat{T}))
-    (isfinite(HI(x) * inv(HI(y)))) && return DoubleFloat{T}(dvi_dddd_dd(HILO(x), HILO(y)))
+    (isfinite(HI(x) * inv(HI(y)))) && return DoubleFloat{T}(dvi_dddd_dd(HILO(x), HILO(y))...)
     dvi_dbdb_db_nonfinite(x, y)
 end
 
