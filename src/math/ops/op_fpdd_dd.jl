@@ -15,7 +15,12 @@ end
 modified to handle +/- Inf properly
 =#
 @inline function mul_fpdd_dd(x::T, y::Tuple{T,T}) where T<:IEEEFloat
-    mul_ddfp_dd(y, x)
+    yhi, ylo = y
+    hihi, hilo = two_prod(yhi, x)
+    t = x * ylo
+    t = t + hilo
+    hi, lo = two_hilo_sum(hihi, t)
+    isinf(hi) ? (hi, NaN) : isinf(hihi) ? (hihi, NaN) : (hi, lo)
 end
 
 #=
