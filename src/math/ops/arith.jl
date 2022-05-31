@@ -11,28 +11,34 @@ cbrt(x::DoubleFloat{T}) where {T<:IEEEFloat} = cbrt_db_db(x)
 square(x::DoubleFloat{T}) where {T<:IEEEFloat} = square_db_db(x)
 cube(x::DoubleFloat{T}) where {T<:IEEEFloat} = cube_db_db(x)
 
+#=
 (+)(x::Bool, y::DoubleFloat{T}) where {T<:IEEEFloat} = add_fpdb_db(T(x), y)
 (+)(x::DoubleFloat{T}, y::Bool) where {T<:IEEEFloat} = add_dbfp_db(x, T(y))
 (+)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = add_fpdb_db(T(x), y)
 (+)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = add_dbfp_db(x, T(y))
+=#
 
 (+)(x::T, y::DoubleFloat{T}) where {T<:IEEEFloat} = add_fpdb_db(x, y)
 (+)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = add_dbfp_db(x, y)
 (+)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = add_dbdb_db(x, y)
 
+#=
 (-)(x::Bool, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_fpdb_db(T(x), y)
 (-)(x::DoubleFloat{T}, y::Bool) where {T<:IEEEFloat} = sub_dbfp_db(x, T(y))
 (-)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_fpdb_db(T(x), y)
 (-)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = sub_dbfp_db(x, T(y))
+=#
 
 (-)(x::T, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_fpdb_db(x, y)
 (-)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = sub_dbfp_db(x, y)
 (-)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_dbdb_db(x, y)
 
+#=
 (*)(x::Bool, y::DoubleFloat{T}) where {T<:IEEEFloat} = mul_fpdb_db(T(x), y)
 (*)(x::DoubleFloat{T}, y::Bool) where {T<:IEEEFloat} = mul_dbfp_db(x, T(y))
 (*)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = mul_fpdb_db(T(x), y)
 (*)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = mul_dbfp_db(x, T(y))
+=#
 
 (*)(x::Signed, y::DoubleFloat{T}) where {T<:IEEEFloat} = mul_fpdb_db(T(x), y)
 (*)(x::DoubleFloat{T}, y::Signed) where {T<:IEEEFloat} = mul_dbfp_db(x, T(y))
@@ -40,10 +46,12 @@ cube(x::DoubleFloat{T}) where {T<:IEEEFloat} = cube_db_db(x)
 (*)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = mul_dbfp_db(x, y)
 (*)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = mul_dbdb_db(x, y)
 
+#=
 (/)(x::Bool, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_fpdb_db(T(x), y)
 (/)(x::DoubleFloat{T}, y::Bool) where {T<:IEEEFloat} = dvi_dbfp_db(x, T(y))
 (/)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_fpdb_db(T(x), y)
 (/)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = dvi_dbfp_db(x, T(y))
+=#
 
 (/)(x::Signed, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_fpdb_db(T(x), y)
 (/)(x::DoubleFloat{T}, y::Signed) where {T<:IEEEFloat} = dvi_dbfp_db(x, T(y))
