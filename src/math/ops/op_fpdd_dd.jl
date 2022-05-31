@@ -27,7 +27,7 @@ function mul_fpdd_dd(x::T, y::Tuple{T,T}) where T<:IEEEFloat
     isinf(hihi) ? (hihi, NaN) : (hi, lo)
 end
 =#	   
-=#
+
 @inline function mul_fpdd_dd(x::T, y::Tuple{T,T}) where T<:IEEEFloat
     yhi, ylo = x
     hihi, hilo = two_prod(x, yhi)
