@@ -17,7 +17,6 @@ cube(x::DoubleFloat{T}) where {T<:IEEEFloat} = cube_db_db(x)
 (+)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = add_dbfp_db(x, y)
 (+)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = add_dbdb_db(x, y)
 
-
 (-)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_fpdb_db(T(x), y)
 (-)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = sub_dbfp_db(x, T(y))
 (-)(x::T, y::DoubleFloat{T}) where {T<:IEEEFloat} = sub_fpdb_db(x, y)
@@ -31,8 +30,8 @@ cube(x::DoubleFloat{T}) where {T<:IEEEFloat} = cube_db_db(x)
 (*)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = mul_dbfp_db(x, y)
 (*)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = mul_dbdb_db(x, y)
 
-(/)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = div_fpdb_db(T(x), y)
-(/)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = div_dbfp_db(x, T(y))
+(/)(x::Integer, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_fpdb_db(T(x), y)
+(/)(x::DoubleFloat{T}, y::Integer) where {T<:IEEEFloat} = dvi_dbfp_db(x, T(y))
 (/)(x::T, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_fpdb_db(x, y)
 (/)(x::DoubleFloat{T}, y::T) where {T<:IEEEFloat} = dvi_dbfp_db(x, y)
 (/)(x::DoubleFloat{T}, y::DoubleFloat{T}) where {T<:IEEEFloat} = dvi_dbdb_db(x, y)
