@@ -54,7 +54,7 @@ end
     yhi, ylo = y
     hixy = xhi / yhi
     uh, ul = two_prod(hixy, yhi)
-    lo = ((((xhi - uh) - ul) + xlo) - hi*ylo)/yhi
+    lo = ((((xhi - uh) - ul) + xlo) - hixy*ylo)/yhi
     hi,lo = two_hilo_sum(hixy, lo)
     isinf(hi) ? (hi, NaN) : isinf(hixy) ? (hixy, NaN) : (hi,lo)
 end
