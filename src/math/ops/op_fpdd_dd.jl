@@ -34,7 +34,7 @@ end
 =#	   
 
 @inline function mul_fpdd_dd(x::T, y::Tuple{T,T}) where T<:IEEEFloat
-    yhi, ylo = x
+    yhi, ylo = y
     hihi, hilo = two_prod(x, yhi)
     t = x * ylo
     t = t + hilo
