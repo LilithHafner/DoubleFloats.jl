@@ -36,7 +36,7 @@ function mul_dddd_dd(x::Tuple{T,T}, y::Tuple{T,T}) where T<:IEEEFloat
     t = fma(xlo, yhi, t)
     t = hilo + t
     hi, lo = two_hilo_sum(hihi, t)
-    isinf(hihi) ? (hihi, NaN) : (hi,lo)
+    isinf(hi) ? (hi, NaN) : (hi,lo)
 end
 
 #=
