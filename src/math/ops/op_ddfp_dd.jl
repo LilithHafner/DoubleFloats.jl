@@ -47,5 +47,5 @@ end
     uh, ul = two_prod(hi, y)
     lo = ((((xhi - uh) - ul) + xlo))/y
     hi,lo = two_hilo_sum(hi, lo)
-    return hi, lo
+    isinf(hi) ? (hi, NaN) : (hi, lo)
 end
